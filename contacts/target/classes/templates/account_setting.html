@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account setting</title>
+    <link th:href="@{/home-style.css}" rel="stylesheet">
+    <link th:href="@{/setting.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+</head>
+<body>
+<div class="navigation">
+    <h1 class="logo-text"><i class="fas fa-heart"></i> DatingSite</i></h1>
+
+    <div class="middle">
+        <div class="menu">
+            <div class="items">
+                <a th:href="@{/account/home}"><i class="fas fa-users"></i> Home</a>
+            </div>
+            <div class="items">
+                <a th:href="@{/account/messages}"><i class="fas fa-envelope"></i> Message</a></div>
+            <div class="items">
+                <a href="/logout"><i class="fas fa-sign-in-alt"></i> Sign Out</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="update_container">
+    <form th:action="@{/account/change}" th:method="put" th:object="${description}">
+        <div class="white_box">
+            <h5 class="card_message message" th:if="${successMessage}" th:text="${successMessage}"></h5>
+            <h2 class="setting_text">Налаштування акаунта</h2>
+            <div class="element_setting_box">
+                <p class="setting_text">Заміна імені:</p>
+                <input type="text" placeholder="Введіть ім'я" th:field="*{name}">
+            </div>
+            <div class="element_setting_box">
+                <p class="setting_text">Заміна прізвища: </p>
+                <input type="text" placeholder="Введіть прізвище" th:field="*{surname}">
+            </div>
+            <div class="element_setting_box">
+                <p class="setting_text">Заміна опису: </p>
+                <textarea placeholder="Введіть опис" th:field="*{description}"></textarea>
+            </div>
+            <div class="element_setting_box">
+                <p class="setting_text">Ваші ключові слова: </p>
+                <input type="text" name="keywords" placeholder="Ключові слова" th:value="${keywords}">
+            </div>
+            <button type="submit" class="update_btn">Застосувати</button>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

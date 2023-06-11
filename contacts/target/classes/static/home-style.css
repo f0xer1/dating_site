@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #5b5b5b;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+}
+
+.card_message{
+    color: #70c0c2;
+    font-family: 'Dancing Script', cursive;
+    font-size: 16px;
+}
+.logo-text {
+    color: #70c0c2;
+    font-family: 'Dancing Script', cursive;
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.items {
+    padding: 16px 0;
+    background: cadetblue;
+}
+
+.items a {
+    padding: 16px 50px;
+
+    color: white;
+}
+
+/*Пошук*/
+
+.search_box {
+    height: 50px;
+    display: flex;
+    cursor: pointer;
+    background: white;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+}
+
+.search_box:hover input {
+    width: 300px;
+}
+
+.search_box input {
+    border-radius: 10px;
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+}
+.search_box button{
+    background:none ;
+    border: none;
+}
+.search_box button .fas {
+    color: #5F9EA0FF;
+    font-size: 18px;
+}
+
+/*Карточки кнопки*/
+.see_description{
+    background-color: cadetblue;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 5px;
+    width: 80%;
+    color: white;
+    border-radius: 5px;
+}
+.likebtn {
+    background: none;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    width: 80%;
+    opacity: 0.9;
+}
+.likebtn i{
+    color: #f32a2a;
+    font-size: 40px;
+}
+.registerbtn:hover {
+    opacity: 1;
+}
+
+/* CSS стилі для центрування блоку з користувачем */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    text-align: center;
+    border-style: solid;
+    left: 50%;
+    top: 50%;
+    min-width: 10%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: white;
+
+}
+.text_box{
+    display: flex;
+    margin-top: 10px;
+    padding: 10px 0;
+
+}
+.font_text{
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+}
+.card_text_logo{
+    font-family: 'Dancing Script', cursive;
+    color: #70c0c2;
+}
+.card_text {
+    font-weight: 500;
+    color: black;
+    font-size: 16px;
+    margin-left: 5px;
+    margin-top: 6px;
+}
+.card_box_btn{
+    display: flex;
+
+}
+.card_box_btn div{
+    display: flex;
+    position:  absolute;
+    bottom:30px;
+    right:  30px;
+}
+
+.card {
+    width: 400px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+
+
+/* CSS стилі для активного блоку з користувачем */
+.card.active {
+    display: block; /* Змінюємо display на block */
+}
+
+/* CSS стилі для неактивних блоків */
+.card:not(.active) {
+    display: none;
+}
+
+/* CSS стилі для стрілок */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+    background-color: #aaa;
+}
+
+.arrow.left {
+    left: 20px;
+    transform: rotate(-90deg);
+}
+
+.arrow.right {
+    right: 20px;
+    transform: rotate(-90deg);
+}
+
+/* CSS стилі для стрілочних іконок */
+.arrow::before {
+    content: '';
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+}
+
+.arrow.left::before {
+    transform: rotate(225deg);
+}
+
+.next-button {
+    margin-top: 20px;
+}
+
+
+

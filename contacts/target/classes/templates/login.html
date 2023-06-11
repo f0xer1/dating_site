@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+    <link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+    <div style="color: red" th:if="${param.error}">
+       Неправильний логін чи пароль.
+    </div>
+    <div style="color: #04AA6D" th:if="${param.logout}">
+        Ви вийшли з акаунта.
+    </div>
+    <p th:if="${successMessage}" th:text="${successMessage}" style="color: green"></p>
+    <p style="color: #04AA6D" th:if="${successMessage!=null}"></p>
+
+    <form th:action="@{/login}" method="post">
+        <p><b>Логін : </b></p>
+        <div><label><input placeholder="Введіть логін" type="text" name="username"/> </label></div>
+        <p><b>Пароль: </b></p>
+        <div><label> <input placeholder="Введіть пароль" type="password" name="password"/> </label></div>
+        <hr>
+        <div><input class="registerbtn" type="submit" value="Увійти"/></div>
+        <p>Немаєш акаунта? <a th:href="@{/}">Зареєструватись</a>.</p>
+    </form>
+</div>
+</body>
+</html>

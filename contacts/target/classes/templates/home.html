@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dating Site</title>
+    <link th:href="@{/home-style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+</head>
+<body>
+<div class="navigation">
+    <h1 class="logo-text"><i class="fas fa-heart"></i> DatingSite</i></h1>
+
+    <div class="middle">
+        <div class="menu">
+            <div class="search_box">
+
+                <form th:action="@{/account/search}" method="get">
+                    <input type="text" name="keyword" placeholder="Search">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+
+            </div>
+            <div class="items">
+                <a th:href="@{/account/setting}"><i class="fas fa-cog"></i> Setting</a>
+            </div>
+            <div class="items">
+                <a th:href="@{/account/messages}"><i class="fas fa-envelope"></i> Message</a></div>
+            <div class="items">
+                <a href="/logout"><i class="fas fa-sign-in-alt"></i> Sign Out</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="card-container">
+    <div  class="card_message_box" >
+        <p class="card_message" th:if="${nullMessage}" th:text="${nullMessage}"></p>
+        <p  class="card_message"  th:if="${badMessage}" th:text="${badMessage}"></p>
+        <p  class="card_message" th:if="${successMessage}" th:text="'Пошук за: ' +${successMessage}">
+    </div>
+    <div class="card" th:each="user : ${users}">
+        <h1 class="card_text_logo">Анкети </p></h1>
+
+        <div>
+            <div>
+                <p class="text_box font_text" th:text=" ${user.username}"></p>
+            </div>
+            <div class="text_box">
+                <p class="font_text">Name: </p>
+                <p class="card_text" th:text="${user.userDescription.name}"></p>
+            </div>
+            <div class="text_box">
+                <p class="font_text">Surname: </p>
+                <p class="card_text" th:text=" ${user.userDescription.surname}"></p>
+            </div>
+        </div>
+        <div class="card_box_btn">
+            <div>
+                <form th:action="@{/account/get-information}" method="post">
+                    <input type="hidden" name="userId" th:value="${user.id}">
+                    <button type="submit" class="see_description">Подивитись повну інформацію</button>
+                </form>
+
+                <form th:action="@{/account/send-invitation}" method="post">
+                    <input type="hidden" name="userId" th:value="${user.id}">
+                    <button type="submit" class="likebtn"><i class="fas fa-heart"></i></button>
+                </form>
+            </div>
+
+        </div>
+        <div class="arrow left" onclick="scrollToPrevUser()"></div>
+        <div class="arrow right" onclick="scrollToNextUser()"></div>
+    </div>
+
+</div>
+
+<script>
+    var currentIndex = 0;
+    var cards = document.querySelectorAll('.card');
+    cards[currentIndex].classList.add('active');
+
+    function scrollToNextUser() {
+        cards[currentIndex].classList.remove('active');
+
+        currentIndex++;
+        if (currentIndex >= cards.length) {
+            currentIndex = 0;
+        }
+
+        cards[currentIndex].classList.add('active');
+    }
+
+    function scrollToPrevUser() {
+        cards[currentIndex].classList.remove('active');
+
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = cards.length - 1;
+        }
+
+        cards[currentIndex].classList.add('active');
+    }
+</script>
+</body>
+</html>

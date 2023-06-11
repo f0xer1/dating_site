@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Description</title>
+    <link th:href="@{/home-style.css}" rel="stylesheet">
+    <link th:href="@{/description.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+</head>
+<body>
+<div class="navigation">
+    <h1 class="logo-text"><i class="fas fa-heart"></i> DatingSite</i></h1>
+
+    <div class="middle">
+        <div class="menu">
+            <div class="items">
+                <a th:href="@{/account/setting}"><i class="fas fa-cog"></i> Setting</a>
+            </div>
+            <div class="items">
+                <a th:href="@{/account/messages}"><i class="fas fa-envelope"></i> Message</a></div>
+            <div class="items">
+                <a href="/logout"><i class="fas fa-sign-in-alt"></i> Sign Out</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container" >
+    <h1 class="description_title">Опис</h1>
+    <h5 class="message" th:if="${message}" th:text="${message}"></h5>
+    <div class="box_description">
+        <p class="description_description">Description: </p>
+        <p class="description_text" th:if="${user!=null}" th:text=" ${user.userDescription.description}"></p>
+    </div>
+    <form th:action="@{/account/home}" method="get">
+        <div class="box_btn">
+            <button type="submit" class="back">Повернутись</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

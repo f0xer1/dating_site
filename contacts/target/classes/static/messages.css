@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.requests_btn_accept{
+    background-color: #04AA6D;
+    width: 150px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+.requests_btn_rejected{
+    background-color: #ff6161;
+    width: 150px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+}
+.message_box{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    text-align: center;
+    border-style: solid;
+    left: 50%;
+    top: 50%;
+    min-width: 40%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: white;
+}
+.container{
+    display: flex;     flex-direction: column;
+    padding: 30px;
+}.container_box{
+    display: flex;
+
+    margin: 10px;
+ }
+
+.box{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+.container_box_text{
+    font-family: 'Dancing Script', cursive;
+}
+.container_box_text_username{
+    font-size: 24px;
+    font-family: 'Dancing Script', cursive;
+}
+.box_text_message{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 10px;
+}
